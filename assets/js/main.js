@@ -72,6 +72,21 @@ function addDisplay(button) {
         erase();
         
     } else if (button === '=') {
+
+        if (press === undefined){
+        clear();
+        return;
+        }
+
+        if (press === '=') {
+            clear();
+            return console.log('parou');
+        }
+
+        if (press === '') {
+            clear();
+            return;
+        }
         if (Number(press)) {
             try {
 
