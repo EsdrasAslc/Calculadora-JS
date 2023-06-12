@@ -55,3 +55,37 @@ body {
     text-align: end;
     font-size: larger;
 }
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+	.calc {
+        grid: auto-flow 5rem/ repeat(4, [line1 line2 line3 line4] 5.5rem);
+        gap: .5rem;     
+        justify-content: center;
+
+    }
+
+    .display {
+        width: 100%;
+        height: 2rem;
+        margin-bottom: 1rem;
+        text-align: end;
+        font-size: larger;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 599px) {
+    .calc{ 
+        grid: auto-flow 3.5rem/ repeat(4, [line1 line2 line3 line4] 3.7rem);
+        gap: .5rem;
+        justify-content: center;
+    }
+
+    .display {
+        width: 100%;
+        height: 2rem;
+        margin-bottom: 1rem;
+        text-align: end;
+        font-size: larger;
+    }
+    
+}
