@@ -15,7 +15,9 @@ document.addEventListener('keypress', (e) => {
         addDisplay('PA')
     } else if (e.key === ')') {
         addDisplay('PF')
-    } 
+    } else if (e.key === ',') {
+        addDisplay('.')
+    }
 });
 
 document.addEventListener('keydown', (e) => {
