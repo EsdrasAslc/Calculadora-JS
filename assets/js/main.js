@@ -4,6 +4,26 @@ let prePress;
 let complete = false;
 const display = document.querySelector('#display');
 
+document.addEventListener('keypress', (e) => {
+    if (Number(e.key)) {
+        addDisplay(Number(e.key));
+    } else if( e.key === '+' || e.key === '*' || e.key === '/' || e.key === '-' || e.key === '.') {
+        addDisplay(e.key)
+    } else if (e.key === 'Enter') {
+        addDisplay('=')
+    } else if (e.key === '(') {
+        addDisplay('PA')
+    } else if (e.key === ')') {
+        addDisplay('PF')
+    } 
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace') {
+        addDisplay('<<')
+    }
+})
+
 function addDisplay(button) {
     
     
