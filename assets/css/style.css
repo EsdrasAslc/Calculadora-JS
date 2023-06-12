@@ -56,6 +56,17 @@ body {
     font-size: larger;
 }
 
+p {
+    text-align: center;
+    font-size: 1rem;
+    
+}
+
+a {
+    font-style: italic;
+    
+}
+
 @media screen and (min-width: 600px) and (max-width: 900px) {
 	.calc {
         grid: auto-flow 5rem/ repeat(4, [line1 line2 line3 line4] 5.5rem);
