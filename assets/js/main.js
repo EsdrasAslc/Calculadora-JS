@@ -109,31 +109,40 @@ function addDisplay(button) {
         }
         if (Number(press)) {
             try {
-
+                
                 display.value = eval(display.value);
                 complete = true;
 
             } catch (error) {
                 
-                alert('Erro de sintaxe!');
+                alert(`Erro de sintaxe!`);
                 clear();
                 
             }
         } else {
             
-            try {
-                
-                erase();
-
+            if (press === 'PF' ){
                 display.value = eval(display.value);
                 complete = true;
-
-            } catch (error) {
-
-                alert('Erro de sintaxe!');
-                clear();
-
+                
+            } else {
+                try {
+                
+                    erase();
+    
+                    display.value = eval(display.value);
+                    complete = true;
+    
+                } catch (error) {
+    
+                    alert(`Erro de sintaxe!`);
+                    clear();
+    
+                }
             }
+
+
+            
         }
         
     }
