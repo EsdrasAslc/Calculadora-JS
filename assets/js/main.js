@@ -60,7 +60,6 @@ function addDisplay(button) {
         } else if (button === '*') {
             display.value += button;
         } else if (button === '/'){
-            console.log('OXI /')
             display.value += button;           
         } 
 
@@ -148,17 +147,14 @@ function addDisplay(button) {
         }
         
     }
-    console.log(press);
     prePress = press;
     press = button;
-    console.log(press);
 }
 
 function erase() {
     display.value = display.value.slice(0, display.value.length - 1);
     const lastPick = display.value.slice(display.value.length - 1, display.value.length);
     press = prePress;
-    console.log(lastPick);
 }
 
 function clear() {
