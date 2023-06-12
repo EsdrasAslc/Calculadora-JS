@@ -1,22 +1,26 @@
-let parenteses;
+let parenteses = 0;
 let press;
 let prePress;
 let complete = false;
 const display = document.querySelector('#display');
 
 document.addEventListener('keypress', (e) => {
+    
+
     if (Number(e.key)) {
         addDisplay(Number(e.key));
+    } else if (e.key === '0') {
+        addDisplay(0);
     } else if( e.key === '+' || e.key === '*' || e.key === '/' || e.key === '-' || e.key === '.') {
-        addDisplay(e.key)
+        addDisplay(e.key);
     } else if (e.key === 'Enter') {
-        addDisplay('=')
+        addDisplay('=');
     } else if (e.key === '(') {
-        addDisplay('PA')
+        addDisplay('PA');
     } else if (e.key === ')') {
-        addDisplay('PF')
+        addDisplay('PF');
     } else if (e.key === ',') {
-        addDisplay('.')
+        addDisplay('.');
     }
 });
 
@@ -36,7 +40,7 @@ function addDisplay(button) {
         complete = false;
     }
 
-    if (typeof button === 'number') {
+    if (typeof button == 'number') {
         
         display.value += button;
 
@@ -50,26 +54,15 @@ function addDisplay(button) {
 
             display.value += button;
 
-        } else if (press === '/'){
-
-            
+        } else if (press === '*' || press === '/'){ 
             erase();
+            display.value += button;
+        } else if (button === '*') {
+            display.value += button;
+        } else if (button === '/'){
+            console.log('OXI /')
             display.value += button;           
-
-        } else if (press === '*') {
-            if (button === '/') {
-                if (prePress === '*') {
-                    erase();
-                    erase();
-                    display.value += button; 
-                }
-                erase();
-                
-                display.value += button; 
-            } else {
-                display.value += button; 
-            }
-        }
+        } 
 
     } else if (button === '+' || button === '-') {
         
@@ -94,6 +87,13 @@ function addDisplay(button) {
         erase();
         
     } else if (button === '=') {
+        if (parenteses > 0) {
+            for (let i = 0; i < parenteses; i++){
+                display.value += ')'
+                console.log(display.value)
+            }
+            parenteses = 0;
+        }
 
         if (press === undefined){
         clear();
@@ -173,19 +173,23 @@ function colchete (type) {
         if (display.value === '') {
             
             display.value += '(' ;
-            parenteses = true;
+            parenteses++
         } else if (Number(press)) {
 
             display.value += '*(';
-            parenteses = true;
+            parenteses++
 
+        } else if (!Number(press)) {
+            display.value += '('
+
+            parenteses++
         }
     }
 
     if (type === 'PF') {
-        if (parenteses) {
+        if (parenteses > 0) {
             display.value += ')';
-            parenteses = false;
-        } 
+            parenteses--
+            } 
     }
 }
