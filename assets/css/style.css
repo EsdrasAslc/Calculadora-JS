@@ -40,8 +40,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: azure;
-    border: solid 0.5px
+    background-color: lightgray;
+    border: solid 0.5px lightgray;
 }
 
 .calc div:hover {
