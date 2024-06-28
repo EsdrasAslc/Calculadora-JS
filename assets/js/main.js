@@ -54,7 +54,10 @@ function addDisplay(button) {
 
             display.value += button;
 
-        } else if (press === '*' || press === '/'){ 
+        } else if (prePress !== '*' && press === '*'){ 
+            display.value += button;
+
+        } else if (press === '*' || press === '/') {
             erase();
             display.value += button;
         } else if (button === '*') {
@@ -101,7 +104,7 @@ function addDisplay(button) {
 
         if (press === '=') {
             clear();
-            return console.log('parou');
+            return;
         }
 
         if (press === '') {

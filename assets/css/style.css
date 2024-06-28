@@ -82,6 +82,15 @@ a {
         text-align: end;
         font-size: larger;
     }
+
+    body {
+        background-color: white;
+    }
+
+    .container {
+        margin: 0;
+        box-shadow: 0px 0px 11px 2px white;
+    }
 }
 
 @media screen and (min-width: 300px) and (max-width: 599px) {
@@ -99,4 +108,12 @@ a {
         font-size: larger;
     }
     
+    body {
+        background-color: white;
+    }
+
+    .container {
+        margin: 0;
+        box-shadow: 0px 0px 11px 2px white;
+    }
 }
