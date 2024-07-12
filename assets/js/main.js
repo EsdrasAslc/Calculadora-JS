@@ -136,9 +136,10 @@ function addDisplay(button) {
                 
             } else {
                 try {
-                
-                    erase();
-    
+                    if (!prePress === 0) {
+                        erase();
+                    }
+
                     display.value = eval(display.value);
                     complete = true;
     
