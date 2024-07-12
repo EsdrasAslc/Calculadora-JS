@@ -119,7 +119,12 @@ function addDisplay(button) {
 
             } catch (error) {
                 
+                if (display.value[lengthDisplay-1] == '0' && display.value[lengthDisplay-2] == '/'){
+                    
+                }
+
                 alert(`Erro de sintaxe!`);
+
                 clear();
                 
             }
@@ -138,8 +143,14 @@ function addDisplay(button) {
                     complete = true;
     
                 } catch (error) {
-    
-                    alert(`Erro de sintaxe!`);
+
+                    let lengthDisplay = display.value.length;
+                    if (display.value[lengthDisplay-1] == '/') {
+                        alert(`Erro matemático!`);
+                    } else {
+                        alert(`Erro de sintaxe!`);
+                    }
+
                     clear();
     
                 }
@@ -173,12 +184,14 @@ function colchete (type) {
             
             display.value += '(' ;
             parenteses++
-        } else if (Number(press)) {
+        } else if (Number(press) || press === '<<' ) {
 
             display.value += '*(';
             parenteses++
 
         } else if (!Number(press)) {
+            console.log(press)
+            console.log('ue')
             display.value += '('
 
             parenteses++
